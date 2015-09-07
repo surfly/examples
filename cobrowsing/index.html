@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cobrowsing - Surfly Code Samples</title>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			body{width: 900px; margin: 0 auto;color: #666}
+			header{width: 100%; background: #D34141; padding: 5px 10px;}
+			.main_container{padding: 0 10px;}
+			h1{margin: 15px 0;}
+			p{margin: 15px 0;}
+			ul{list-style: inside;}
+			ul li{padding: 10px 15px;}
+			a{color: #e54746; text-decoration: none;}
+			a:hover{color: #6e2222}
+			button{background: #D34141;border: medium none;
+				color: #fff;cursor: pointer;font-weight: bold;padding: 5px;
+				text-transform: uppercase;}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href=" https://www.surfly.com/ ">
+				<img alt="Delicious Mint" src="https://www.surfly.com/wp-content/themes/delicious/img/mint/logo.png">
+			</a>
+		</header>
+		<div class="main_container">
+			<h1>Example : Cobrowsing</h1>
+			<p>Instart start, share session with friends.</p>
+			<button id="surflystart">Chat with Friends</button>
+		</div>
+
+<script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{"widgetkey": "54731063bfa746ac826d1429f230a0b7",
+	"enable_sounds": true,
+	"videochat": true,
+	"QUEUE_CALLBACK": false,
+	"min_width": 0,
+	"agent_can_request_control": false,
+	"on_end_redirect_follower_to_queue": true,
+	"dock_top_position": false,
+	"autohide_control": false,
+	"splash": true,
+	"theme_font_size": false,
+	"hidden": true,
+	"theme_font_color": false,
+	"set_to_smallest": true,
+	"newurl": true,
+	"QUEUE_ENDPOINT": "",
+	"agent_can_take_control": false,
+	"max_height": 0,
+	"white_label": false,
+	"min_height": 0,
+	"theme_inverted": true,
+	"QUEUE_HANDLER": false,
+	"autohide_button": true,
+	"soft_session_end": false,
+	"docked_only": false,
+	"theme_font_background": false,
+	"ui_off": false,
+	"max_width": 0,
+	"apiserver": "https://surfly.com/v2/",
+	"sharing_button": true,
+	"auto_start": false,
+	"position": "bottomleft",
+	"stealth_mode": true};
+	var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();
+	</script>
+	<script type="text/javascript">
+
+        window.onload = function() {
+            document.getElementById('surflystart').onclick=Surfly.session.instant_start;
+        }
+
+        if (window.__surfly) {
+            document.getElementById('surfly_start_button').style.display = "none";
+        }
+    </script>
+	</body>
+</html>
