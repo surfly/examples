@@ -1,0 +1,15 @@
+*{padding: 0; margin: 0;}
+body{width: 900px; margin: 0 auto;color: #666}
+header{width: 100%; background: #D34141; padding: 5px 10px;}
+.main_container{padding: 0 10px;}
+h1{margin: 15px 0;}
+p{margin: 15px 0;}
+ul{padding-left:40px;}
+ul li{padding: 10px 15px;}
+a{color: #e54746; text-decoration: none;}
+a:hover{color: #6e2222}
+button{background: #D34141;border: medium none;
+color: #fff;cursor: pointer;font-weight: bold;padding: 5px;
+text-transform: uppercase;}
+.back_navigation{text-align: right;}
+th, td{padding: 10px;}

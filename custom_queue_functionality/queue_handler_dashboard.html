@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Custom Javascript handler Dashboard - Surfly Code Samples</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	</head>
+	<body>
+		<header>
+			<a href=" https://www.surfly.com/ ">
+				<img alt="Delicious Mint" src="https://www.surfly.com/wp-content/themes/delicious/img/mint/logo.png">
+			</a>
+		</header>
+		<div class="main_container">
+			<h1>Custom Javascript handler Dashboard</h1>
+			<div class="source_link">
+				<p><b>Source code</b> : <a href="https://github.com/surfly/examples/blob/gh-pages/custom_queue_functionality/queue_handler_dashboard.html" target="_blank"> Github</a></p>
+			</div>
+			<table id="queue" width="100%">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>User Link</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+		<script type="text/javascript">
+			/*
+			This is custom Queue handler dashboard
+			Fetch the queue results from firebase and list it here
+			*/
+			d = new Date();
+			var myDataRef = new Firebase('https://surflydev.firebaseio.com/'+d.getDate()+'-'+ (d.getMonth() + 1) +'-'+d.getFullYear());
+
+			//To check any new queue joined, If available it prepend into the table
+			myDataRef.on('child_added', function(snapshot) {
+				data = snapshot.val();
+				if(data.status)
+			  	{
+			  		$('#queue tbody').prepend('<tr id="'+ snapshot.key() +'"><td>'+data.id+'</td><td>'+data.url+'</td><td><a onclick="call_taken(\''+ snapshot.key() +'\')" target="_blank" href="'+data.viewer_link+'">Join</a></td></tr>');
+			  	}
+			});
+
+
+			//here to watch any queue status updated
+			myDataRef.on('child_changed', function(snapshot) {
+				console.log(snapshot.val());
+				$('#queue tbody #'+snapshot.key()).remove();
+			});
+
+			function call_taken(id)
+			{
+				var child_data = myDataRef.child(id);
+				child_data.update({
+				    "status": false
+				});
+			}
+		</script>
+	</body>
+</html>

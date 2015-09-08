@@ -11,35 +11,39 @@
 			</a>
 		</header>
 		<div class="main_container">
-			<h1>Example : Cobrowsing</h1>
+			<h1>Example : Custom Queue callback</h1>
 			<div class="back_navigation">
 				<a href="/examples/">Back to listing</a>
 			</div>
-			<p>Instart start, share session with friends with your custom button.</p>
-			<button id="surflystart">Chat with Friends</button>
+			<p>Write your own callback event, use <b>QUEUE_CALLBACK</b></p>
 			<div class="source_link">
-				<p><b>Source code</b> : <a href="https://github.com/surfly/examples/tree/gh-pages/cobrowsing" target="_blank"> Github</a></p>
+				<p><b>Source code</b> : <a href="https://github.com/surfly/examples/blob/gh-pages/custom_queue_functionality/queue_callback.html" target="_blank"> Github</a></p>
 			</div>
 		</div>
 
 		<script type="text/javascript">
+			
 			/*
-			No need to join agent queue and start session with custom button
-			1. Set true for splash and hidden
-			2. Initiate "Surfly.session.instant_start" when your custom button clicked
+			Add custom call back function
 			*/
+
+			function custom_callback(response)
+			{
+				document.getElementById("surfly-splash-msg").innerHTML = "Custom call back Message : Our Request added in agent Queue";
+			}
+
 			(function(){window['_surfly_settings']=window['_surfly_settings']||{"widgetkey": "54731063bfa746ac826d1429f230a0b7",
 				"enable_sounds": true,
 				"videochat": true,
-				"QUEUE_CALLBACK": false,
+				"QUEUE_CALLBACK": custom_callback,
 				"min_width": 0,
 				"agent_can_request_control": false,
 				"on_end_redirect_follower_to_queue": true,
 				"dock_top_position": false,
 				"autohide_control": false,
-				"splash": true,
+				"splash": false,
 				"theme_font_size": false,
-				"hidden": true,
+				"hidden": false,
 				"theme_font_color": false,
 				"set_to_smallest": true,
 				"newurl": true,
@@ -64,15 +68,5 @@
 				var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); 
 			})();
 		</script>
-		<script type="text/javascript">
-
-	        window.onload = function() {
-	            document.getElementById('surflystart').onclick=Surfly.session.instant_start;
-	        }
-
-	        if (window.__surfly) {
-	            document.getElementById('surfly_start_button').style.display = "none";
-	        }
-	    </script>
 	</body>
 </html>
