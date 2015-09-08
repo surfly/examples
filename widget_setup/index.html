@@ -26,12 +26,10 @@
 			</a>
 		</header>
 		<div class="main_container">
-			<h1>Example : Cobrowsing</h1>
+			<h1>Example : Widget setup on a page</h1>
 			<div class="back_navigation">
 				<a href="/examples/">Back to listing</a>
 			</div>
-			<p>Instart start, share session with friends with your custom button.</p>
-			<button id="surflystart">Chat with Friends</button>
 		</div>
 
 <script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{"widgetkey": "54731063bfa746ac826d1429f230a0b7",
@@ -43,9 +41,9 @@
 	"on_end_redirect_follower_to_queue": true,
 	"dock_top_position": false,
 	"autohide_control": false,
-	"splash": true,
+	"splash": false,
 	"theme_font_size": false,
-	"hidden": true,
+	"hidden": false,
 	"theme_font_color": false,
 	"set_to_smallest": true,
 	"newurl": true,
@@ -69,15 +67,5 @@
 	"stealth_mode": true};
 	var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();
 	</script>
-	<script type="text/javascript">
-
-        window.onload = function() {
-            document.getElementById('surflystart').onclick=Surfly.session.instant_start;
-        }
-
-        if (window.__surfly) {
-            document.getElementById('surfly_start_button').style.display = "none";
-        }
-    </script>
 	</body>
 </html>
