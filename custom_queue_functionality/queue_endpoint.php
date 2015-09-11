@@ -59,7 +59,7 @@ $queue_list = mysqli_query($con, "Select * from incoming_queue where status = 1"
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Custom Javascript Endpoint Dashboard - Surfly Code Samples</title>
+		<title>Custom Javascript Endpoint Dashboard - Surfly Examples</title>
 		<link rel="stylesheet" href="style.css">
 		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
@@ -73,7 +73,10 @@ $queue_list = mysqli_query($con, "Select * from incoming_queue where status = 1"
 		<div class="main_container">
 			<h1>Custom Javascript Endpoint Dashboard</h1>
 			<div class="source_link">
-				<p><b>Source code</b> : <a href="https://github.com/surfly/examples/blob/gh-pages/custom_queue_functionality/queue_handler_dashboard.html" target="_blank"> Github</a></p>
+				<p>
+					<b>Source code</b> : <a href="https://github.com/surfly/examples/blob/gh-pages/custom_queue_functionality/queue_endpoint.php" target="_blank"> Github</a>
+					<span class="overview"><a href="http://surfly.github.io/examples/">Surfly Example overview</a></span>
+				</p>
 			</div>
 			<table id="queue" width="100%">
 				<thead>

@@ -13,3 +13,4 @@ color: #fff;cursor: pointer;font-weight: bold;padding: 5px;
 text-transform: uppercase;}
 .back_navigation{text-align: right;}
 th, td{padding: 10px;}
+p span.overview{float:right;}
