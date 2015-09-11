@@ -38,18 +38,16 @@
 			
 			CUSTOM_CALLBACK have two param
 			1. status true or false
-				true - success queue join
+				true - success queue join, rejoin
 				false - cancel, reload, closed
 			2. success callback data
 			*/
 			function custom_callback(status, data)
 			{
-				if(!status)
-				{
-					$.get("https://surfly-examples-vino247-1.c9.io/?action=update_queue_status&queue_id="+data, function(response){
-						console.log(response);
-					});
-				}
+				status = status ? 1 : 0;
+				$.get("https://surfly-examples-vino247-1.c9.io/?action=update_queue_status&status="+ status +"&queue_id="+data, function(response){
+					console.log(response);
+				});
 			}
 
 			(function(){window['_surfly_settings']=window['_surfly_settings']||{"widgetkey": "54731063bfa746ac826d1429f230a0b7",

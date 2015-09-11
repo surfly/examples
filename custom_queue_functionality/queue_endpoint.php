@@ -35,7 +35,7 @@ if(isset($_POST['viewer_link']))
 }
 elseif(isset($_GET['action']) && $_GET['action'] == 'update_queue_status')
 {
-    echo $sql = "UPDATE incoming_queue SET status=0 WHERE id=". $_GET['queue_id'];
+    echo $sql = "UPDATE incoming_queue SET status=".$_GET['status']." WHERE id=". $_GET['queue_id'];
     
     mysqli_query($con, $sql);
     exit;
@@ -115,7 +115,7 @@ $queue_list = mysqli_query($con, "Select * from incoming_queue where status = 1"
 			
 			function call_taken(id)
 			{
-				$.get("https://surfly-examples-vino247-1.c9.io/?action=update_queue_status&queue_id="+id, function(response){
+				$.get("https://surfly-examples-vino247-1.c9.io/?action=update_queue_status&status=0&queue_id="+id, function(response){
 					console.log(response);
 				});
 			}

@@ -44,18 +44,25 @@
 			//To check any new queue joined, If available it prepend into the table
 			myDataRef.on('child_added', function(snapshot) {
 				data = snapshot.val();
-				if(data.status)
-			  	{
-			  		$('#queue tbody').prepend('<tr id="'+ snapshot.key() +'"><td>'+data.id+'</td><td>'+data.url+'</td><td><a onclick="call_taken(\''+ snapshot.key() +'\')" target="_blank" href="'+data.viewer_link+'">Join</a></td></tr>');
-			  	}
+				manage_queue(snapshot, data, false);
 			});
 
 
 			//here to watch any queue status updated
 			myDataRef.on('child_changed', function(snapshot) {
-				console.log(snapshot.val());
-				$('#queue tbody #'+snapshot.key()).remove();
+				data = snapshot.val();
+				manage_queue(snapshot, data, true);
 			});
+
+			function manage_queue(snapshot, data, oldchild)
+			{
+				if(data.status)
+				{
+					$('#queue tbody').prepend('<tr id="'+ snapshot.key() +'"><td>'+data.id+'</td><td>'+data.url+'</td><td><a onclick="call_taken(\''+ snapshot.key() +'\')" target="_blank" href="'+data.viewer_link+'">Join</a></td></tr>');
+				}
+				else if(oldchild)
+					$('#queue tbody #'+snapshot.key()).remove();
+			}
 
 			function call_taken(id)
 			{
